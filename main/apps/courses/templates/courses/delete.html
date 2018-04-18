@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Delete</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h3>Are you sure you want to delete the following course?</h3>
+		<h4>Name: {{course.name}}</h4>
+		<h4>Name: {{course.desc}}</h4>
+		<a href="/"><button action=>No</button></a>
+		<form action="/confirm/{{course.id}}" method="POST">{% csrf_token %}
+			<input type="hidden" name="id" value={{course.id}}>
+			<input type="submit" name="submit" value="Yes, delete it.">
+		</form>
+	</div>
+</body>
+</html>
